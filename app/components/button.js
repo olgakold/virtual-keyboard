@@ -6,11 +6,12 @@ export class Button {
 
     init (){
         let but = document.createElement('button')
-        but.innerHTML = this.name       
-        if (this.name === 'space') but.innerHTML = ''
+        but.innerHTML = this.name.slice(0,this.name.indexOf(' '))       
+        if (this.name.slice(0,this.name.indexOf(' ')) === 'space') but.innerHTML = ''
         but.classList.add('button')
-        but.classList.add(this.name.toLowerCase())
-        if (this.name.length !== 1) but.classList.add('special')
+        console.log (this.name.slice(this.name.indexOf(' ')+1))
+        but.classList.add(this.name.slice(this.name.indexOf(' ')+1))
+        if (this.name.slice(0,this.name.indexOf(' ')).length !== 1) but.classList.add('special')
         return but
     }
 }

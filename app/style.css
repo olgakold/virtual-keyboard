@@ -35,18 +35,24 @@
   background: darkgrey;
 }
 
-.backspace,
-.capslock,
-.enter,
-.shift {
+.Backspace,
+.CapsLock,
+.Enter,
+.ShiftRight,
+.ShiftLeft {
   width: 85px;
 }
 
-.tab {
+.Tab {
   width: 55px;
 }
 
-.space {
+.Space {
   width: 330px;
+}
+
+.active {
+  background: lightgreen;
+  border-color: black;
 }
 /*# sourceMappingURL=style.css.map */
