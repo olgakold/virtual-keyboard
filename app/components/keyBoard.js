@@ -1,3 +1,5 @@
+import {Button} from './button.js'
+
 export class KeyBoard {
 
     constructor(lang){
@@ -34,13 +36,8 @@ export class KeyBoard {
         this.lang === 'RUS' ? createButtons(this.keyRUS) : createButtons(this.keyENG)
         function createButtons (arr){
             for (let i=0; i<arr.length; i++){
-            let but = document.createElement('button')
-            but.innerHTML = arr[i]       
-            if (arr[i] === 'space') but.innerHTML = ''
-            keyboardButtons.append(but)
-            but.classList.add('button')
-            but.classList.add(arr[i].toLowerCase())
-            if (arr[i].length !== 1) but.classList.add('special')
+                let but = new Button (arr[i])
+                keyboardButtons.append(but.init())
             }
         }
     }

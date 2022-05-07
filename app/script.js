@@ -1,4 +1,4 @@
-import {KeyBoard} from './keyBoard.js'
+import {KeyBoard} from './components/keyBoard.js'
 
 let keyBoard = new KeyBoard ('ENG')
 
