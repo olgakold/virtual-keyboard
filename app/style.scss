@@ -21,6 +21,7 @@
     border-radius: 5px;
     height: 40px;
     width: 40px;
+    transition: 0.5s;
 }
 .special {
     background: darkgrey;    
@@ -42,5 +43,11 @@
 .active{
     background: lightgreen;
     border-color: black;
+    border-radius: 15px;
+}
+.comment {
+    width: 387px;
+    text-align: center;
+    margin: 0 auto;
 }
 

@@ -4,6 +4,7 @@ export class KeyBoard {
 
     constructor(lang){
         this.lang = lang
+        this.keyboardButtons
     }
 
     keyENG = [
@@ -26,19 +27,39 @@ export class KeyBoard {
         const body = document.getElementsByTagName('body')[0],
         keyboardWrapper = document.createElement('div'),
         textArea = document.createElement('textarea'),
-        keyboardButtons = document.createElement('div')
+        keyboardButtons = document.createElement('div'),        
+        comment = document.createElement('div')
+        this.keyboardButtons = keyboardButtons
         keyboardWrapper.className = 'keyboard-wrapper';
         keyboardWrapper.append(textArea);
         keyboardWrapper.append(keyboardButtons)
+        keyboardWrapper.append(comment)
         textArea.className = 'keyboard-input';
         keyboardButtons.className = 'keyboard-buttons'
+        comment.className = 'comment'
+        comment.innerHTML = "Клавиатура создана в операционной системе Windows. Для переключения языка комбинация: левыe ctrl + alt"
         body.append(keyboardWrapper)
-        this.lang === 'RUS' ? createButtons(this.keyRUS) : createButtons(this.keyENG)
-        function createButtons (arr){
-            for (let i=0; i<arr.length; i++){
-                let but = new Button (arr[i])
-                keyboardButtons.append(but.init())
-            }
+        this.lang === 'RUS' ? this.createButtons(this.keyRUS) : this.createButtons(this.keyENG)
+    }
+
+    createButtons (arr){
+        for (let i=0; i<arr.length; i++){
+            let but = new Button (arr[i])
+            this.keyboardButtons.append(but.init())
         }
     }
+
+    changeLang(lang){
+        this.deleteBut()
+        lang === 'RUS' ? this.createButtons(this.keyRUS) : this.createButtons(this.keyENG)
+    }
+
+    deleteBut(){
+        while (this.keyboardButtons.children.length>0){
+        for (let i=0; i<this.keyboardButtons.children.length; i++){
+            this.keyboardButtons.children[i].remove()
+        }            
+        }
+    }
+    
 }
