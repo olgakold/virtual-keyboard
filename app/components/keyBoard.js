@@ -50,16 +50,13 @@ export class KeyBoard {
     }
 
     changeLang(lang){
-        this.deleteBut()
-        lang === 'RUS' ? this.createButtons(this.keyRUS) : this.createButtons(this.keyENG)
-    }
-
-    deleteBut(){
-        while (this.keyboardButtons.children.length>0){
-        for (let i=0; i<this.keyboardButtons.children.length; i++){
-            this.keyboardButtons.children[i].remove()
-        }            
+        let arr = lang === 'RUS' ? this.keyRUS : this.keyENG
+        for (let i=0; i<this.keyboardButtons.childNodes.length; i++){
+            this.keyboardButtons.childNodes[i].innerHTML = arr[i].slice(0,arr[i].indexOf(' '))
+            if (arr[i].slice(0,arr[i].indexOf(' ')) === 'space') this.keyboardButtons.childNodes[i].innerHTML = " "
         }
     }
+
+
     
 }

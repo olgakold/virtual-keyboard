@@ -29,15 +29,14 @@ function pressButReal(e) {
        if (elem.classList.contains(e.code)){
            activeElem.add(e.code)
            elem.classList.add("active")
-           if (!elem.classList.contains('special') || elem.classList.contains('space')) text += elem.innerHTML
+           if (!elem.classList.contains('special') || elem.classList.contains('Space')) text += elem.innerHTML
            textarea.innerHTML = text
        }
     }
-
     if (activeElem.size === 2 & (activeElem.has('ControlLeft') & activeElem.has('AltLeft'))){
         changeLang()
-    }   
-
+        
+    }     
 }
 
 function upButReal(e){
@@ -50,17 +49,20 @@ function pressBut (e){
     activeElem.add(e.target.classList[1])
     let elem = e.target
     elem.classList.add("active")
-    if (!elem.classList.contains('special') || elem.classList.contains('space')) text += elem.innerHTML
+    if (!elem.classList.contains('special') || elem.classList.contains('Space')) text += elem.innerHTML
     textarea.innerHTML = text
 }
+
 function upBut(e){
     let elem = document.getElementsByClassName(e.target.classList[1])[0]
     elem.classList.remove('active')
-    activeElem.delete(e.code) 
+    activeElem.delete(e.target.classList[1]) 
 }
 
 function changeLang(){  
     localStorage.getItem('lang') === 'ENG' ? lang = 'RUS' : lang = 'ENG' 
     localStorage.setItem('lang', lang) 
     keyBoard.changeLang(lang)
+
 }
+
